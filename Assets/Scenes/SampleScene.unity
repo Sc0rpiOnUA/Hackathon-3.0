@@ -156,7 +156,8 @@ MonoBehaviour:
   _chunkPrefabs:
   - {fileID: 7342122821598998687, guid: 2b8cadcc3d7b7b64590a2050ed794352, type: 3}
   _firstChunk: {fileID: 510815210}
-  _chunkCount: 10
+  _chunkCount: 20
+  _spawnDistance: 100
 --- !u!4 &320582070
 Transform:
   m_ObjectHideFlags: 0
@@ -691,7 +692,7 @@ PrefabInstance:
     - target: {fileID: 9085519593968575163, guid: 7a63c002dea5ccf4e98a33e217022d9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -68.6
       objectReference: {fileID: 0}
     - target: {fileID: 9085519593968575163, guid: 7a63c002dea5ccf4e98a33e217022d9f,
         type: 3}
@@ -701,7 +702,7 @@ PrefabInstance:
     - target: {fileID: 9085519593968575163, guid: 7a63c002dea5ccf4e98a33e217022d9f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.9
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 9085519593968575163, guid: 7a63c002dea5ccf4e98a33e217022d9f,
         type: 3}

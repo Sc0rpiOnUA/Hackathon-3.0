@@ -6,8 +6,11 @@ public class ChunkPlacer : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private Chunk[] _chunkPrefabs;
+    [SerializeField] private ForkChunk[] _forkChunkPrefabs;
     [SerializeField] private Chunk _firstChunk;
     [SerializeField] private int _chunkCount;
+    [SerializeField] private int _spawnDistance;
+    private int chunksToFork = 20;
     private List<Chunk> spawnedChunks = new List<Chunk>();
 
     private void Start()
@@ -17,7 +20,7 @@ public class ChunkPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (_player.position.z > spawnedChunks[spawnedChunks.Count - 1].end.position.z - 15)
+        if (_player.position.z > spawnedChunks[spawnedChunks.Count - 1].end.position.z - _spawnDistance)
         {
             SpawnChunk();
         }
