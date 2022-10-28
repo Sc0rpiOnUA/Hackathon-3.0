@@ -22,7 +22,11 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (_player.position.z > spawnedChunks[spawnedChunks.Count - 1].end.position.z - _spawnDistance)
         {
-            SpawnChunk();
+            if (chunksToFork != 0)
+            {
+                SpawnChunk();
+                
+            }
         }
     }
 
