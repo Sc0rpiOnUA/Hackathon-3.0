@@ -144,7 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   begin: {fileID: 7342122820832116320}
-  end: {fileID: 7342122822225655002}
+  ends:
+  - {fileID: 7342122822225655002}
   ChanceFromDistance:
     serializedVersion: 2
     m_Curve:

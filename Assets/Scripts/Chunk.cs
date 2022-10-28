@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Chunk : MonoBehaviour
 {
-    public Transform begin, end;
+    public Transform begin;
+    public Transform[] ends;
     public AnimationCurve ChanceFromDistance;
 }
