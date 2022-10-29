@@ -5,18 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TramController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
     [HideInInspector] public bool canTurn = false;
     [HideInInspector] public bool isTurned = false;
     [HideInInspector] public int turnWay = 1;
     private float horizontal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
