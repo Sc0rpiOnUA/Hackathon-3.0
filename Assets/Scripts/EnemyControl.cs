@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    [SerializeField] private TramController _tramController;
+    [SerializeField] private GameObject _tram;
+    private TramController tramController;
     private float  startSpeed, currentSpeed;
     private Vector3 targetPoint;
     private int tunelNumber;
-    private float randX = -8;
-    private float randZ = 100;
+    [SerializeField] private float randX = -8;
+    [SerializeField] private float randZ = 200;
+    [SerializeField] private GameObject _bomb;
+    [SerializeField] private Transform _bombSpawnPoint;
+    [SerializeField] private float _shootingPause;
+    private bool shoot = false;
     private void Awake()
     {
         targetPoint = new Vector3(randX, transform.position.y, transform.position.z + randZ);
+        tramController = _tram.GetComponent<TramController>();
+
     }
     private void Start()
     {
-        startSpeed = _tramController._speed;
+        startSpeed = tramController._speed;
         currentSpeed = startSpeed;
     }
     private void Update()
     {
-        
 
     }
     private void FixedUpdate()
     {
+        if (shoot == false)
+        {
+            StartCoroutine(Shooting(_shootingPause));
+        }
         StartCoroutine(Turn(targetPoint));
         ManageMove();
     }
@@ -73,6 +83,15 @@ public class EnemyControl : MonoBehaviour
             StartCoroutine(Turn(target));
         }
     }*/
+    private IEnumerator Shooting(float time)
+    {
+        shoot = true;
+        yield return new WaitForSeconds(time);
+        GameObject bomb = Instantiate(_bomb, _bombSpawnPoint.position,_bombSpawnPoint.rotation);
+        Rigidbody rb = bomb.GetComponent<Rigidbody>();
+        rb.AddForce((-_tram.transform.position+_bombSpawnPoint.up*2f),ForceMode.Impulse);
+        shoot = false;
+    }
     private IEnumerator Turn(Vector3 target)
     {
 
@@ -93,7 +112,7 @@ public class EnemyControl : MonoBehaviour
     {
         Quaternion currentRotation = transform.rotation;
         Quaternion wantedRotation = Quaternion.LookRotation(new Vector3(target.x, transform.position.y, target.z) - transform.position);
-        transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 20f);
+        transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 10f);
         float distanation = Vector3.Distance(transform.position, new Vector3(target.x, transform.position.y, target.z));
         if (distanation < 10f)
         {
