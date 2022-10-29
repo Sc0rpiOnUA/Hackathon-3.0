@@ -11,7 +11,7 @@ public class ChunkPlacer : MonoBehaviour
     [SerializeField] private Chunk _firstChunk;
     [SerializeField] private int _chunkCount;
     [SerializeField] private int _spawnDistance;
-    private int chunksToFork = -1;
+    private int chunksToFork = 20;
     private List<Chunk> spawnedChunks = new List<Chunk>();
     private int nextWayContinue;
     private bool isTurned;
@@ -35,10 +35,6 @@ public class ChunkPlacer : MonoBehaviour
             else if(chunksToFork == 0)
             {
                 SpawnForkChunk(_forkChunkPrefabs, _defaultChunkPrefabs);
-            }
-            else if(chunksToFork == -1)
-            {
-                SpawnChunk(_defaultChunkPrefabs);
             }
         }
     }
