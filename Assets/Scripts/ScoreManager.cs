@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        _scoreText.text = "Повернені креслення: " + _scoreIndex.ToString();
+        _scoreText.text = "Віджаті креслення: " + _scoreIndex.ToString();
             
     }
 
