@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4603044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 6.25, z: -9.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5705,6 +5705,23 @@ PrefabInstance:
       propertyPath: _firstChunk
       value: 
       objectReference: {fileID: 3209923501728566939, guid: 641a083f8261546409ef7d0fdd97c90f,
+        type: 3}
+    - target: {fileID: 4832926594331985664, guid: 21472e605fb63f6479c5b646fd86a76c,
+        type: 3}
+      propertyPath: _forkChunkPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832926594331985664, guid: 21472e605fb63f6479c5b646fd86a76c,
+        type: 3}
+      propertyPath: _forkChunkPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4149899752964065359, guid: 64d64584f84778b47a04b722e14eae88,
+        type: 3}
+    - target: {fileID: 4832926594331985664, guid: 21472e605fb63f6479c5b646fd86a76c,
+        type: 3}
+      propertyPath: _forkChunkPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5685669064679292417, guid: 36413934a305e0f4ca6c11a5dad05e82,
         type: 3}
     - target: {fileID: 4832926594331985664, guid: 21472e605fb63f6479c5b646fd86a76c,
         type: 3}
