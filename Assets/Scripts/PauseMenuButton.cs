@@ -9,6 +9,7 @@ public class PauseMenuButton : MonoBehaviour
     [SerializeField] GameObject _gameMenuPanel;
     [SerializeField] GameObject _easterEggPanel;
     [SerializeField] Toggle _easterEggToggle;
+    [SerializeField] Toggle _nameEasterEggToggle;
     [SerializeField] private GameObject _settingsPanel;
 
     void Start()
@@ -31,6 +32,13 @@ public class PauseMenuButton : MonoBehaviour
             PlayerPrefs.DeleteKey("t");
             StoryOfGame.t = 0;
         }
+        if (_nameEasterEggToggle.isOn)
+        {
+            PlayerPrefs.DeleteKey("IsNameSet");
+            PlayerManager.checkIsNameSet = 0;
+        }
+
+
     }
 
     public void BackToGame()
