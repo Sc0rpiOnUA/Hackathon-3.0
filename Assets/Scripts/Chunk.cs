@@ -6,5 +6,4 @@ public class Chunk : MonoBehaviour
 {
     public Transform begin;
     public Transform[] ends;
-    public AnimationCurve ChanceFromDistance;
 }
