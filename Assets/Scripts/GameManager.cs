@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _panelLose.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void OpenLosePanel()
     {
         _panelLose.SetActive(true);
+        Time.timeScale = 0;
     }
     public void RetryButton()
     {

@@ -47,7 +47,7 @@ public class ChunkPlacer : MonoBehaviour
         if (forkSpawned == false)
         {
             Chunk newChunk = Instantiate(GetRandomChunk(forkChunks), gameObject.transform);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[0].position - newChunk.begin.localPosition * 100;
+            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[0].position; //- newChunk.begin.localPosition * 100;
             spawnedChunks.Add(newChunk);
             forkSpawned = true;
 
@@ -55,7 +55,7 @@ public class ChunkPlacer : MonoBehaviour
         else if(isTurned&&forkSpawned&&canTurn)
         {
             Chunk newChunk = Instantiate(GetRandomChunk(defaultChunks), gameObject.transform);
-            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[nextWayContinue].position - newChunk.begin.localPosition * 30;
+            newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[nextWayContinue].position; //- newChunk.begin.localPosition * 30;
             spawnedChunks.Add(newChunk);
             chunksToFork = 20;
             forkSpawned = false;
@@ -70,7 +70,7 @@ public class ChunkPlacer : MonoBehaviour
     private void SpawnChunk(Chunk[] chunks)
     {
         Chunk newChunk = Instantiate(GetRandomChunk(chunks), gameObject.transform);
-        newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[0].position - newChunk.begin.localPosition;
+        newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].ends[0].position;// - newChunk.begin.localPosition;
         spawnedChunks.Add(newChunk);
 
         if (spawnedChunks.Count >= _chunkCount)

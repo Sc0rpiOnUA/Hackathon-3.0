@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TramController : MonoBehaviour
 {
+    public GameManager gameManager;
+
     [SerializeField] public float _speed;
     [HideInInspector] public bool canTurn = false;
     [HideInInspector] public bool isTurned = false;
@@ -36,7 +38,7 @@ public class TramController : MonoBehaviour
     {
         if (collision.transform.tag == "Wall")
         {
-            SceneManager.LoadScene(1);
+            gameManager.OpenLosePanel();
         }
 
     }
