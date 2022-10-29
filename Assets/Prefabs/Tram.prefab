@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
+  isTurned: 0
+  turnWay: 0
 --- !u!54 &245541490295552974
 Rigidbody:
   m_ObjectHideFlags: 0

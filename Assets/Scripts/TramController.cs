@@ -5,16 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TramController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    private bool canTurn = false;
+    [SerializeField] public float _speed;
+    [HideInInspector] public bool canTurn = false;
+    [HideInInspector] public bool isTurned = false;
+    [HideInInspector] public int turnWay = 1;
     private float horizontal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -50,56 +46,52 @@ public class TramController : MonoBehaviour
 
         if (other.transform.tag == "Turn")
         {
-            if (canTurn)
+            if (horizontal == 1)
             {
-
-                if (horizontal == 1)
+                isTurned = true;
+                turnWay = 2;
+                target = other.GetComponent<RotationFlag>().rightTurn.transform.position;
+                if(target == null)
                 {
-                    target = other.GetComponent<RotationFlag>().rightTurn.transform.position;
-                    if(target == null)
-                    {
-                        other.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        StartCoroutine(Turn(target));
-                        other.gameObject.SetActive(false);
-                    }
-
+                    isTurned = false;
+                    other.gameObject.SetActive(false);
+                    
                 }
-                else if (horizontal == -1)
+                else
                 {
-                    target = other.GetComponent<RotationFlag>().leftTurn.transform.position;
-                    if (target == null)
-                    {
-                        other.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        StartCoroutine(Turn(target));
-                        other.gameObject.SetActive(false);
-                    }
-
-                }
-                else if(horizontal == 0)
-                {
-                    target = other.GetComponent<RotationFlag>().forwardTurn.transform.position;
-                    if (target == null)
-                    {
-                        other.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        target = other.GetComponent<RotationFlag>().forwardTurn.transform.position;
-                        StartCoroutine(Turn(target));
-                        other.gameObject.SetActive(false);                    }
+                    StartCoroutine(Turn(target));
+                    isTurned = true;
+                    other.gameObject.SetActive(false);
                 }
             }
+            else if (horizontal == -1)
+            {
+                isTurned = true;
+                turnWay = 0;
+                target = other.GetComponent<RotationFlag>().leftTurn.transform.position;
+                if (target == null)
+                {
+                    isTurned = false;
+                    other.gameObject.SetActive(false);
+                }
+                else
+                {
+                    StartCoroutine(Turn(target));
+                    isTurned = true;
+                    other.gameObject.SetActive(false);
+                }
+            }
+            else if(horizontal == 0)
+            {
+                isTurned = true;
+                turnWay = 1;
 
+            }
         }
     }
     private IEnumerator Turn(Vector3 target)
     {
+        
         yield return new WaitUntil(() => IsTurned(target));
 
 
@@ -130,6 +122,10 @@ public class TramController : MonoBehaviour
         {
             canTurn = true;
             Debug.Log("Can Turn");
+        }
+        else
+        {
+            canTurn = false;
         }
     }
 }
