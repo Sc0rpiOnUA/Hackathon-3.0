@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using LootLocker.Requests;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,13 +7,24 @@ public class GameManager : MonoBehaviour
 {
 
     [Header("UI")]
-    [SerializeField] private GameObject _panelLose;
+    private GameObject _panelLose;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _panelLose.SetActive(false);
+        //_panelLose.SetActive(false);
+        LootLockerSDKManager.StartGuestSession((response) =>
+        {
+            if (!response.success)
+            {
+                Debug.Log("error starting LootLocker session");
+
+                return;
+            }
+
+            Debug.Log("successfully started LootLocker session");
+        });
     }
 
     // Update is called once per frame
