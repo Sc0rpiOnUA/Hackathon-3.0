@@ -7,13 +7,16 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtons : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
+    [SerializeField] private GameObject _leaderBoardPanel;
+    [SerializeField] private GameObject _settingsPanel;
 
 
     void Start()
     {
         _slider = GetComponent<Slider>();
         _slider.value = 0.5f;
-
+        _leaderBoardPanel.SetActive(false);
+        _settingsPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +28,23 @@ public class MainMenuButtons : MonoBehaviour
         
     }
 
+    public void OpenLeaderBoard()
+    {
+        _leaderBoardPanel.SetActive(true);
+    }
 
+    public void CloseLeaderBoard()
+    {
+        _leaderBoardPanel.SetActive(false);
+    }
 
+    public void OpenSettingsButton()
+    {
+        _settingsPanel.SetActive(true);
+    }
 
+    public void CloseSettingsButton()
+    {
+        _settingsPanel.SetActive(false);
+    }
 }
