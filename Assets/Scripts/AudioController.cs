@@ -15,10 +15,8 @@ public class AudioController : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = 0.6f;
         LevelOfSound();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         _audioSource.volume = _volumeSlider.value;
