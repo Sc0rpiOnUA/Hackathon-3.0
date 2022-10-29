@@ -6,27 +6,34 @@ public class EnemyControl : MonoBehaviour
 {
     [SerializeField] private TramController _tramController;
     private float  startSpeed, currentSpeed;
-    private Vector3 moveTrajectory;
+    private Vector3 targetPoint;
     private int tunelNumber;
-    Vector3 target;
+    private float randX = -8;
+    private float randZ = 100;
+    private void Awake()
+    {
+        targetPoint = new Vector3(randX, transform.position.y, transform.position.z + randZ);
+    }
     private void Start()
     {
         startSpeed = _tramController._speed;
         currentSpeed = startSpeed;
-        moveTrajectory = Vector3.forward;
+    }
+    private void Update()
+    {
+        
+
     }
     private void FixedUpdate()
     {
-
+        StartCoroutine(Turn(targetPoint));
         ManageMove();
-
     }
     private void ManageMove()
     {
-        transform.Translate((Vector3.forward+moveTrajectory) * currentSpeed);
-
+        transform.Translate((Vector3.forward) * currentSpeed);
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
 
         if (other.transform.tag == "Turn")
@@ -65,12 +72,20 @@ public class EnemyControl : MonoBehaviour
             }
             StartCoroutine(Turn(target));
         }
-    }
+    }*/
     private IEnumerator Turn(Vector3 target)
     {
 
         yield return new WaitUntil(() => IsTurned(target));
 
+        if (transform.position.x < 0)
+        {
+            targetPoint = new Vector3(-randX, transform.position.y, transform.position.z + randZ);
+        }
+        else
+        {
+            targetPoint = new Vector3(randX, transform.position.y, transform.position.z + randZ);
+        }
 
     }
 
@@ -80,10 +95,8 @@ public class EnemyControl : MonoBehaviour
         Quaternion wantedRotation = Quaternion.LookRotation(new Vector3(target.x, transform.position.y, target.z) - transform.position);
         transform.rotation = Quaternion.Lerp(currentRotation, wantedRotation, Time.deltaTime * 20f);
         float distanation = Vector3.Distance(transform.position, new Vector3(target.x, transform.position.y, target.z));
-        if (distanation < 2f)
+        if (distanation < 10f)
         {
-            Debug.Log("Turned");
-            transform.rotation = new Quaternion(transform.rotation.x, Mathf.Round(transform.rotation.y), transform.rotation.z, transform.rotation.w);
             return true;
         }
         else
