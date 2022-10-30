@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     [SerializeField] private GameObject _tram;
+    public GameManager gameManager;
     private TramController tramController;
     private float  startSpeed, currentSpeed;
     private Vector3 targetPoint;
@@ -28,7 +29,14 @@ public class EnemyControl : MonoBehaviour
     }
     private void Update()
     {
-
+        if (gameManager.start == true)
+        {
+            currentSpeed = 1;
+        }
+        else
+        {
+            currentSpeed = 0;
+        }
     }
     
     private void FixedUpdate()
