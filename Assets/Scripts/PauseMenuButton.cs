@@ -32,18 +32,18 @@ public class PauseMenuButton : MonoBehaviour
             PlayerPrefs.DeleteKey("t");
             StoryOfGame.t = 0;
         }
-        //if (_nameEasterEggToggle.isOn)
-        //{
-        //    PlayerPrefs.DeleteKey("IsNameSet");
-        //    PlayerManager.checkIsNameSet = 0;
-       // }
+        if (_nameEasterEggToggle.isOn)
+        {
+            PlayerPrefs.DeleteKey("IsNameSet");
+            PlayerManager.checkIsNameSet = 0;
+        }
 
 
     }
 
     public void BackToGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         _gameMenuPanel.SetActive(false);
         Time.timeScale = 1;
     }

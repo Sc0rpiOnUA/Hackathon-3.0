@@ -7,7 +7,7 @@ using TMPro;
 public class LeaderBoard : MonoBehaviour
 {
 
-    int leaderboarID = 8290;
+    int leaderboarID = 8291;
     public TextMeshProUGUI playerNames;
     public TextMeshProUGUI playerScores;
 
@@ -35,7 +35,7 @@ public class LeaderBoard : MonoBehaviour
     public IEnumerator FetchTopHighscoresRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.GetScoreListMain(leaderboarID, 10, 0, (response) =>
+        LootLockerSDKManager.GetScoreListMain(leaderboarID, 5, 0, (response) =>
         {
             if(response.success)
             {

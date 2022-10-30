@@ -8,9 +8,12 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]private GameObject _panelLose;
+    [SerializeField] private GameObject _gameStory;
     private void Awake()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        if (!_gameStory.activeSelf) Time.timeScale = 1f;
+        
     }
 
     // Start is called before the first frame update
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void RetryButton()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
     }
 
     public void QuitGameButton()
