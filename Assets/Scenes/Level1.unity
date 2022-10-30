@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0141990315, g: 0.1422385, b: 0.46104312, a: 1}
+  m_IndirectSpecularColor: {r: 0.014153209, g: 0.14214541, b: 0.46098316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7360,16 +7360,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tram
-      objectReference: {fileID: 0}
-    - target: {fileID: 9130246251254346540, guid: ac114fce4c6ac1a40bf5660a113dd234,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 9130246251254346540, guid: ac114fce4c6ac1a40bf5660a113dd234,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac114fce4c6ac1a40bf5660a113dd234, type: 3}
