@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class TramShootController : MonoBehaviour
 {
-    private bool canHook= false, canShoot=true;
+    public bool canHook= false, canShoot=true;
     private LineRenderer lr;
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
@@ -17,19 +17,26 @@ public class TramShootController : MonoBehaviour
 
     public UnityEvent OnShoot;
     public UnityEvent OnHook;
-    public UnityEvent OnHookReload;
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
+    }
+    public void CanHook()
+    {
+        canHook = true;
+    }
+    public void CantHook() {
+        canHook = false;
     }
     private void Update()
     {
 
         if (canHook)
         {
-            canShoot = false;
+            
             if (Input.GetMouseButtonDown(1))
             {
+                canShoot = false;
                 OnHook.Invoke();
                 StartGrapple();
             }
@@ -79,7 +86,8 @@ public class TramShootController : MonoBehaviour
 
                 lr.positionCount = 2;
                 currentGrapplePosition = _hook.position;
-            }
+            PlayerPrefs.SetInt("Loot", PlayerPrefs.GetInt("Loot")+1);
+        }
         
     }
 
@@ -97,6 +105,7 @@ public class TramShootController : MonoBehaviour
         if (!joint) return;
         if (currentGrapplePosition.z<=transform.position.z)
         {
+            
             return;
         }
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 10f);

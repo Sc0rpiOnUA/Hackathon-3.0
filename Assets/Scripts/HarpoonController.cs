@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HarpoonController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class HarpoonController : MonoBehaviour
     public bool _isHarpoonShooted = false;
     public bool _isHarpoonCharged = false;
     public float sliderSpeed;
-
+    public UnityEvent OnHookCharged, OnHookUnCharged;
 
     void Start()
     {
@@ -24,9 +25,11 @@ public class HarpoonController : MonoBehaviour
         if(_isHarpoonCharged = false || _harpoonSlider.value < 1 )
         {
             _harpoonSlider.value += sliderSpeed;
+            OnHookUnCharged.Invoke();
         }
         if (_harpoonSlider.value == 1)
         {
+            OnHookCharged.Invoke();
             _isHarpoonCharged = true;
             _isHarpoonShooted = false;
         }

@@ -8,9 +8,9 @@ public class Gun : MonoBehaviour
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
 
-        float angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
+        float angle = AngleBetweenPoints(transform.position, -mouseWorldPosition);
 
-        transform.rotation = Quaternion.Euler(new Vector3(0f, -angle, transform.rotation.z));
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, -angle, transform.rotation.z));
     }
 
     float AngleBetweenPoints(Vector2 a, Vector2 b)
