@@ -20,12 +20,8 @@ public class CameraFollower : MonoBehaviour
             transform.position = _target.position + new Vector3(0f, _startHeight, _endFar);
 
         }
-        else
-        {
-            OnPlay();
-        }
     }
-    private void OnPlay()
+    public void OnPlay()
     {
         StartCoroutine(StartSmooth(_target.position + new Vector3(0f, _startHeight, _endFar), 1));
     }

@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
     public bool start = false;
     private void Awake()
     {
-        Time.timeScale = 0f;
-        if (!_gameStory.activeSelf) Time.timeScale = 1f;
+        if (_gameStory.activeSelf == false) _cam.OnPlay();
 
     }
     public void StartGame()
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
         {
             if (_cam.inPosition == true)
             {
+                if (!_gameStory.activeSelf) Time.timeScale = 1f;
                 start = true;
             }
 
