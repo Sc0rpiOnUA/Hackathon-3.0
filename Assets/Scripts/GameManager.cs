@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField]private GameObject _panelLose;
     [SerializeField]CameraFollower _cam;
+    [SerializeField] private GameObject _gameStory;
     public bool start = false;
     private void Awake()
     {
