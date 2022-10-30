@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01412517, g: 0.14209592, b: 0.46095318, a: 1}
+  m_IndirectSpecularColor: {r: 0.0141396355, g: 0.1421386, b: 0.46100003, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9503,6 +9503,7 @@ GameObject:
   - component: {fileID: 1336940035}
   - component: {fileID: 1336940036}
   - component: {fileID: 1336940037}
+  - component: {fileID: 1336940038}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9578,6 +9579,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1955317374}
+--- !u!114 &1336940038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336940032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e0aa66b9e7a6243b5d271cc88cdcb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaderBoard: {fileID: 0}
 --- !u!1 &1358157354
 GameObject:
   m_ObjectHideFlags: 0
@@ -12620,6 +12634,16 @@ PrefabInstance:
       objectReference: {fileID: 1336940035}
     - target: {fileID: 150666549284136980, guid: ac114fce4c6ac1a40bf5660a113dd234,
         type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 1336940035}
+    - target: {fileID: 150666549284136980, guid: ac114fce4c6ac1a40bf5660a113dd234,
+        type: 3}
+      propertyPath: _leaderBoard
+      value: 
+      objectReference: {fileID: 1336940038}
+    - target: {fileID: 150666549284136980, guid: ac114fce4c6ac1a40bf5660a113dd234,
+        type: 3}
       propertyPath: onHitBomb.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -12632,7 +12656,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onHitBomb.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1026176789}
+      objectReference: {fileID: 1336940032}
     - target: {fileID: 150666549284136980, guid: ac114fce4c6ac1a40bf5660a113dd234,
         type: 3}
       propertyPath: onHitBomb.m_PersistentCalls.m_Calls.Array.data[0].m_CallState

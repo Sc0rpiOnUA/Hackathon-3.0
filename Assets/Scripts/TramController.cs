@@ -12,6 +12,7 @@ public class TramController : MonoBehaviour
     [HideInInspector] public int turnWay = 1;
     private float horizontal;
     public UnityEvent onHitBomb;
+    [SerializeField] private PlayerControlForLeaderboard _leaderBoard;
     [SerializeField] private int health = 3;
 
     private void Start()
@@ -21,7 +22,7 @@ public class TramController : MonoBehaviour
             if (health==0)
             {
                 gameManager.OpenLosePanel();
-                _speed = 0f;
+                _leaderBoard.SetScore();
             }
             else
             {
