@@ -10,6 +10,7 @@ public class TramShootController : MonoBehaviour
     private Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public LayerMask whatIsBomb;
+    public LayerMask whatIsCar;
     [SerializeField] private Transform _hook;
     private float maxDistance = 100f;
     private SpringJoint joint;
@@ -36,14 +37,15 @@ public class TramShootController : MonoBehaviour
             
             if (Input.GetMouseButtonDown(1))
             {
-                canShoot = false;
-                OnHook.Invoke();
+
                 StartGrapple();
+
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                StopGrapple();
                 canShoot = true;
+                StopGrapple();
+                
             }
         }
         
@@ -74,7 +76,9 @@ public class TramShootController : MonoBehaviour
 
         if (Physics.Raycast(rayOrigin, out hit, maxDistance, whatIsGrappleable))
             {
-                grapplePoint = hit.collider.transform.position + new Vector3(0f,0f,20f);
+            canShoot = false;
+            OnHook.Invoke();
+            grapplePoint = hit.collider.transform.position + new Vector3(0f,0f,20f);
                 joint = gameObject.AddComponent<SpringJoint>();
                 joint.autoConfigureConnectedAnchor = false;
                 joint.connectedAnchor = grapplePoint;
