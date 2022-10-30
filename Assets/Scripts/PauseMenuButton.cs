@@ -43,8 +43,9 @@ public class PauseMenuButton : MonoBehaviour
 
     public void BackToGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         _gameMenuPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void MainMenuButton()
