@@ -60,8 +60,9 @@ public class TramController : MonoBehaviour
         }
         if (collision.transform.tag == "Bomb")
         {
+            collision.gameObject.GetComponent<Bomb>().Explode();
             onHitBomb.Invoke();
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
 
     }
