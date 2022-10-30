@@ -11,12 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]CameraFollower _cam;
     [SerializeField] private GameObject _gameStory;
     public bool start = false;
-    private void Awake()
-    {
-        Time.timeScale = 0f;
-        if (!_gameStory.activeSelf) Time.timeScale = 1f;
-
-    }
     public void StartGame()
     {
 
@@ -47,6 +41,7 @@ public class GameManager : MonoBehaviour
         {
             if (_cam.inPosition == true)
             {
+                if (!_gameStory.activeSelf) Time.timeScale = 1f;
                 start = true;
             }
 

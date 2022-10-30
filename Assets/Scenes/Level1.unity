@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01417995, g: 0.14221098, b: 0.46101254, a: 1}
+  m_IndirectSpecularColor: {r: 0.014143452, g: 0.14212638, b: 0.46098053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,14 +201,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4603044}
-  m_LocalRotation: {x: 0.39089176, y: 0, z: 0, w: 0.92043674}
-  m_LocalPosition: {x: 0, y: 14, z: -9.85}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 0, y: 0, z: -9.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 46.02, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!114 &4603048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1426008819}
-  _height: 10
-  _lookOffset: 20
-  _far: 0
+  _startHeight: 15
+  _startFar: -20
+  _endFar: -5
+  inPosition: 0
 --- !u!114 &4603049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7430,6 +7431,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 4603048}
+        m_TargetAssemblyTypeName: CameraFollower, Assembly-CSharp
+        m_MethodName: OnPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1336940033}
         m_TargetAssemblyTypeName: StoryOfGame, Assembly-CSharp
         m_MethodName: CloseGameStory
@@ -7589,6 +7602,11 @@ PrefabInstance:
       propertyPath: randX
       value: -9
       objectReference: {fileID: 0}
+    - target: {fileID: 8584577883556354766, guid: e8c2753cea8be36478c8c0967963e937,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1336940035}
     - target: {fileID: 8584577883556354767, guid: e8c2753cea8be36478c8c0967963e937,
         type: 3}
       propertyPath: m_RootOrder
@@ -9554,7 +9572,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelLose: {fileID: 797833004}
+  _cam: {fileID: 4603048}
   _gameStory: {fileID: 432091177}
+  start: 0
 --- !u!114 &1336940036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10078,6 +10098,11 @@ PrefabInstance:
       propertyPath: randX
       value: -7
       objectReference: {fileID: 0}
+    - target: {fileID: 8584577883556354766, guid: 44627b6e94be1c34d870031b9e75fb47,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1336940035}
     - target: {fileID: 8584577883556354767, guid: 44627b6e94be1c34d870031b9e75fb47,
         type: 3}
       propertyPath: m_RootOrder
@@ -10250,6 +10275,11 @@ PrefabInstance:
       propertyPath: _tram
       value: 
       objectReference: {fileID: 1026176789}
+    - target: {fileID: 8584577883556354766, guid: aa9614b3a9881854c971a82ccd1e0ee4,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1336940035}
     - target: {fileID: 8584577883556354767, guid: aa9614b3a9881854c971a82ccd1e0ee4,
         type: 3}
       propertyPath: m_RootOrder
