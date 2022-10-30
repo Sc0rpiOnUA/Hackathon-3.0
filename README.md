@@ -2,4 +2,4 @@
 
 Для запуску гри зайдіть в Builds/Final/Hackathon-3.0.exe
 
-Презентація - Crackers and cookies.pptx
+Презентація - Crackers&cookies.pptx
