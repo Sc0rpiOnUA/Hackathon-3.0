@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
+using UnityEngine.Events;
 public class TramController : MonoBehaviour
 {
     public GameManager gameManager;
@@ -12,7 +11,24 @@ public class TramController : MonoBehaviour
     [HideInInspector] public bool isTurned = false;
     [HideInInspector] public int turnWay = 1;
     private float horizontal;
+    public UnityEvent onHitBomb;
+    private int health = 3;
 
+    private void Start()
+    {
+        onHitBomb.AddListener(() =>
+        {
+            if (health==0)
+            {
+                gameManager.OpenLosePanel();
+            }
+            else
+            {
+                health--;
+            }
+            }
+        );
+    }
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -39,6 +55,11 @@ public class TramController : MonoBehaviour
         if (collision.transform.tag == "Wall")
         {
             gameManager.OpenLosePanel();
+        }
+        if (collision.transform.tag == "Bomb")
+        {
+            onHitBomb.Invoke();
+            Destroy(collision.gameObject);
         }
 
     }
@@ -119,7 +140,6 @@ public class TramController : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.transform.tag == "Fork")
         {
             canTurn = true;

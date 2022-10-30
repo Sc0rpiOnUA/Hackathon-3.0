@@ -30,6 +30,7 @@ public class EnemyControl : MonoBehaviour
     {
 
     }
+    
     private void FixedUpdate()
     {
         if (shoot == false)
@@ -89,7 +90,7 @@ public class EnemyControl : MonoBehaviour
         yield return new WaitForSeconds(time);
         GameObject bomb = Instantiate(_bomb, _bombSpawnPoint.position,_bombSpawnPoint.rotation);
         Rigidbody rb = bomb.GetComponent<Rigidbody>();
-        rb.AddForce((-_tram.transform.position+_bombSpawnPoint.up*2f),ForceMode.Impulse);
+        rb.AddForce((bomb.transform.up)*Random.Range(4,8), ForceMode.VelocityChange);
         shoot = false;
     }
     private IEnumerator Turn(Vector3 target)

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public Transform player;
+    private bool isShoot;
+    private void Update()
     {
-        if (collision.transform.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
+        player = GameObject.FindWithTag("Player").transform;
+        isShoot = player.GetComponent<TramShootController>().isShoot;
+        transform.LookAt(player);
     }
 }
