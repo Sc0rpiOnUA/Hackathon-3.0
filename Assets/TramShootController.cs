@@ -59,7 +59,9 @@ public class TramShootController : MonoBehaviour
 
                 if (Physics.Raycast(rayOrigin, out hit, maxDistance, whatIsBomb))
                 {
-                    Destroy(hit.collider.gameObject);
+                    hit.collider.gameObject.GetComponent<Bomb>().Explode();
+
+                    //Destroy(hit.collider.gameObject);
                 }
                     OnShoot.Invoke();
             }
