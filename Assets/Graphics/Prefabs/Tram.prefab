@@ -345,7 +345,7 @@ MonoBehaviour:
     m_Bits: 8
   whatIsBomb:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _hook: {fileID: 0}
   isShoot: 0
   OnShoot:

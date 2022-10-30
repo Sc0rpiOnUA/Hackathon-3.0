@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenLosePanel()
     {
-        _panelLose.SetActive(true);
+        //_panelLose.SetActive(true);
     }
     public void RetryButton()
     {

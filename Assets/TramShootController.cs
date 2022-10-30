@@ -42,9 +42,8 @@ public class TramShootController : MonoBehaviour
         
         if(canShoot)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                isShoot = true;
                 RaycastHit hit;
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -53,10 +52,6 @@ public class TramShootController : MonoBehaviour
                     Destroy(hit.collider.gameObject);
                 }
                     OnShoot.Invoke();
-            }
-            else
-            {
-                isShoot = false;
             }
         }
 

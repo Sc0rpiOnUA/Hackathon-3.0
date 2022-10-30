@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public Transform player;
-    private bool isShoot;
+    [HideInInspector]public Transform player;
     public float bombLife = 3;
     void Awake()
     {
@@ -14,7 +13,6 @@ public class Bomb : MonoBehaviour
     private void Update()
     {
         player = GameObject.FindWithTag("Player").transform;
-        isShoot = player.GetComponent<TramShootController>().isShoot;
         transform.LookAt(player);
     }
 }

@@ -32,11 +32,11 @@ public class PauseMenuButton : MonoBehaviour
             PlayerPrefs.DeleteKey("t");
             StoryOfGame.t = 0;
         }
-        if (_nameEasterEggToggle.isOn)
-        {
-            PlayerPrefs.DeleteKey("IsNameSet");
-            PlayerManager.checkIsNameSet = 0;
-        }
+        //if (_nameEasterEggToggle.isOn)
+        //{
+        //    PlayerPrefs.DeleteKey("IsNameSet");
+        //    PlayerManager.checkIsNameSet = 0;
+       // }
 
 
     }
