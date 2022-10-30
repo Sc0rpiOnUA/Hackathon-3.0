@@ -6,6 +6,11 @@ public class Bomb : MonoBehaviour
 {
     public Transform player;
     private bool isShoot;
+    public float bombLife = 3;
+    void Awake()
+    {
+        Destroy(gameObject, bombLife);
+    }
     private void Update()
     {
         player = GameObject.FindWithTag("Player").transform;
