@@ -6,15 +6,11 @@ using TMPro;
 
 public class LeaderBoard : MonoBehaviour
 {
-    int leaderboarID = 8285;
+
+    int leaderboarID = 8291;
     public TextMeshProUGUI playerNames;
     public TextMeshProUGUI playerScores;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     public IEnumerator SubmitScoreRoutine(int scoreToUpload)
     {
         bool done = false;
@@ -39,7 +35,7 @@ public class LeaderBoard : MonoBehaviour
     public IEnumerator FetchTopHighscoresRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.GetScoreListMain(leaderboarID, 10, 0, (response) =>
+        LootLockerSDKManager.GetScoreListMain(leaderboarID, 5, 0, (response) =>
         {
             if(response.success)
             {

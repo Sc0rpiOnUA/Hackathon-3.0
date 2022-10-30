@@ -7,13 +7,19 @@ public class GameManager : MonoBehaviour
 {
 
     [Header("UI")]
-    private GameObject _panelLose;
-
+    [SerializeField]private GameObject _panelLose;
+    [SerializeField] private GameObject _gameStory;
+    private void Awake()
+    {
+        Time.timeScale = 0f;
+        if (!_gameStory.activeSelf) Time.timeScale = 1f;
+        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //_panelLose.SetActive(false);
+        _panelLose?.SetActive(false);
         LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (!response.success)
@@ -26,21 +32,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("successfully started LootLocker session");
         });
     }
-
-    void Update()
-    {
-        //if (isPlayerDead == true) OpenLosePanel();
-    }
-
-
     public void OpenLosePanel()
     {
-        _panelLose.SetActive(true);
-        Time.timeScale = 0;
+        _panelLose?.SetActive(true);
     }
+
     public void RetryButton()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
     }
 
     public void QuitGameButton()

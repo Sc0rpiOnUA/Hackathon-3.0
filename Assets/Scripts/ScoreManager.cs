@@ -7,15 +7,14 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
     public static int _scoreIndex = 0;
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        _scoreIndex = 0;
     }
 
     void Update()
     {
-        _scoreText.text = "Повернені креслення: " + _scoreIndex.ToString();
+        _scoreText.text = "Віджаті креслення: " + _scoreIndex.ToString();
             
     }
 
