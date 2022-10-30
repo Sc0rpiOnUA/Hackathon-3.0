@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]private GameObject _panelLose;
-
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -39,6 +39,7 @@ public class TramShootController : MonoBehaviour
             {
 
                 StartGrapple();
+                
 
             }
             else if (Input.GetMouseButtonUp(1))
