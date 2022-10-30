@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _panelLose.SetActive(false);
+        _panelLose?.SetActive(false);
         LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (!response.success)
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
     public void OpenLosePanel()
     {
-        _panelLose.SetActive(true);
+        _panelLose?.SetActive(true);
     }
 
     public void RetryButton()
