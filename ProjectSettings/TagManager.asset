@@ -7,14 +7,15 @@ TagManager:
   - Fork
   - Wall
   - Turn
+  - Bomb
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
+  - Bomb
   - 
   - 
   - 
