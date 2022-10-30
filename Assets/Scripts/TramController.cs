@@ -6,7 +6,7 @@ public class TramController : MonoBehaviour
 {
     public GameManager gameManager;
 
-    [SerializeField] public float _speed;
+    [SerializeField] public float _speed = 0;
     [HideInInspector] public bool canTurn = false;
     [HideInInspector] public bool isTurned = false;
     [HideInInspector] public int turnWay = 1;
@@ -15,12 +15,17 @@ public class TramController : MonoBehaviour
     [SerializeField] private PlayerControlForLeaderboard _leaderBoard;
     [SerializeField] private int health = 3;
 
+    private void Awake()
+    {
+            _speed = 0;
+    }
     private void Start()
     {
         onHitBomb.AddListener(() =>
         {
             if (health==0)
             {
+                _speed = 0;
                 gameManager.OpenLosePanel();
                 _leaderBoard.SetScore();
             }
@@ -33,8 +38,15 @@ public class TramController : MonoBehaviour
     }
     void Update()
     {
+        if (gameManager.start == true)
+        {
+            _speed = 1;
+        }
+        else
+        {
+            _speed = 0;
+        }
         horizontal = Input.GetAxis("Horizontal");
-
     }
     private void FixedUpdate()
     {
@@ -43,15 +55,15 @@ public class TramController : MonoBehaviour
     private void ManageMove()
     {
         Forward();
-      
+
     }
 
     private void Forward()
     {
-        
+
         transform.Translate((Vector3.forward) * _speed);
     }
-    
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Wall")
@@ -62,7 +74,6 @@ public class TramController : MonoBehaviour
         {
             collision.gameObject.GetComponent<Bomb>().Explode();
             onHitBomb.Invoke();
-            //Destroy(collision.gameObject);
         }
 
     }
@@ -81,7 +92,7 @@ public class TramController : MonoBehaviour
                 {
                     isTurned = false;
                     other.gameObject.SetActive(false);
-                    
+
                 }
                 else
                 {
@@ -117,7 +128,7 @@ public class TramController : MonoBehaviour
     }
     private IEnumerator Turn(Vector3 target)
     {
-        
+
         yield return new WaitUntil(() => IsTurned(target));
 
 
